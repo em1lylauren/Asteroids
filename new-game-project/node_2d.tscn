@@ -118,7 +118,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"RotateLeft",
-"speed": 7.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -132,7 +132,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"RotateRight",
-"speed": 7.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -193,17 +193,16 @@ CMPT 306"
 label_settings = SubResource("LabelSettings_rvj4h")
 horizontal_alignment = 2
 
-[node name="Player" type="Node2D" parent="."]
-visibility_layer = 2
-z_index = 1
-position = Vector2(400, 400)
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(500, 350)
 script = ExtResource("1_haord")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="Player"]
 visibility_layer = 2
 z_index = 1
 texture_filter = 1
-scale = Vector2(10, 10)
+position = Vector2(-1.78814e-07, -12)
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_2ee5b")
 animation = &"Die"
-frame_progress = 0.778444
+frame_progress = 0.992716
