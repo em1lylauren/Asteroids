@@ -27,7 +27,7 @@ region = Rect2(96, 0, 32, 32)
 atlas = ExtResource("1_r1g7l")
 region = Rect2(0, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r3pku"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jps0s"]
 atlas = ExtResource("1_r1g7l")
 region = Rect2(0, 0, 32, 32)
 
@@ -43,13 +43,13 @@ region = Rect2(96, 32, 32, 32)
 atlas = ExtResource("1_r1g7l")
 region = Rect2(0, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p8vd5"]
-atlas = ExtResource("1_r1g7l")
-region = Rect2(96, 64, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_8h3o7"]
 atlas = ExtResource("1_r1g7l")
 region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8vd5"]
+atlas = ExtResource("1_r1g7l")
+region = Rect2(96, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5jhei"]
 atlas = ExtResource("1_r1g7l")
@@ -100,7 +100,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_r3pku")
+"texture": SubResource("AtlasTexture_jps0s")
 }],
 "loop": true,
 "name": &"Idle",
@@ -122,10 +122,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p8vd5")
+"texture": SubResource("AtlasTexture_8h3o7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8h3o7")
+"texture": SubResource("AtlasTexture_p8vd5")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5jhei")
@@ -205,4 +205,5 @@ z_index = 1
 texture_filter = 1
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_2ee5b")
-animation = &"Idle"
+animation = &"Die"
+frame_progress = 0.778444
