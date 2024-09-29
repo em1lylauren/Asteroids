@@ -35,49 +35,49 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource("1_r1g7l")
 region = Rect2(32, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5c5et"]
-atlas = ExtResource("1_r1g7l")
-region = Rect2(64, 32, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_r40td"]
 atlas = ExtResource("1_r1g7l")
 region = Rect2(96, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dhw5p"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mydvm"]
 atlas = ExtResource("1_r1g7l")
 region = Rect2(0, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_03rgu"]
-atlas = ExtResource("1_r1g7l")
-region = Rect2(32, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p01wn"]
-atlas = ExtResource("1_r1g7l")
-region = Rect2(64, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hv5er"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8vd5"]
 atlas = ExtResource("1_r1g7l")
 region = Rect2(96, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7j853"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8h3o7"]
+atlas = ExtResource("1_r1g7l")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jhei"]
 atlas = ExtResource("1_r1g7l")
 region = Rect2(0, 96, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cjnoe"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4q68"]
 atlas = ExtResource("1_r1g7l")
 region = Rect2(32, 96, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_75k02"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rufh"]
 atlas = ExtResource("1_r1g7l")
 region = Rect2(64, 96, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3tbbe"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_80w58"]
 atlas = ExtResource("1_r1g7l")
 region = Rect2(96, 96, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bt465"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tir13"]
 atlas = ExtResource("1_r1g7l")
 region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b80py"]
+atlas = ExtResource("1_r1g7l")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3kc1"]
+atlas = ExtResource("1_r1g7l")
+region = Rect2(64, 128, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2ee5b"]
 animations = [{
@@ -111,10 +111,10 @@ animations = [{
 "texture": SubResource("AtlasTexture_f0kwd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5c5et")
+"texture": SubResource("AtlasTexture_r40td")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_r40td")
+"texture": SubResource("AtlasTexture_mydvm")
 }],
 "loop": true,
 "name": &"RotateLeft",
@@ -122,13 +122,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dhw5p")
+"texture": SubResource("AtlasTexture_p8vd5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_03rgu")
+"texture": SubResource("AtlasTexture_8h3o7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p01wn")
+"texture": SubResource("AtlasTexture_5jhei")
 }],
 "loop": true,
 "name": &"RotateRight",
@@ -136,13 +136,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hv5er")
+"texture": SubResource("AtlasTexture_x4q68")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7j853")
+"texture": SubResource("AtlasTexture_3rufh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cjnoe")
+"texture": SubResource("AtlasTexture_80w58")
 }],
 "loop": true,
 "name": &"Shoot",
@@ -150,13 +150,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_75k02")
+"texture": SubResource("AtlasTexture_tir13")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3tbbe")
+"texture": SubResource("AtlasTexture_b80py")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bt465")
+"texture": SubResource("AtlasTexture_a3kc1")
 }],
 "loop": true,
 "name": &"Warp",
@@ -205,4 +205,4 @@ z_index = 1
 texture_filter = 1
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_2ee5b")
-animation = &"Shoot"
+animation = &"Idle"
