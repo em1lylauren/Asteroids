@@ -5,6 +5,7 @@ extends CharacterBody2D
 var speed = 10
 var rotationSpeed = 1
 var rotationDirection = 0
+var decay = 0.4 # decay so we aren't rotating forever
 
 @onready var screenSize = get_viewport_rect().size
 
@@ -16,7 +17,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	get_input()
-	rotation += rotationDirection  * rotationSpeed * delta
+	rotation += rotationDirection  * rotationSpeed * delta * decay
 	move_and_slide()
 	screenWrap()
 
@@ -26,18 +27,18 @@ func get_input():
 		$PlayerSprite.play("Idle")
 		
 	if Input.is_key_pressed(KEY_LEFT):
-		rotationDirection -= 1
+		rotationDirection = -3
 		if !Input.is_key_pressed(KEY_SPACE) :
 			$PlayerSprite.play("RotateLeft")
 		
 	if Input.is_key_pressed(KEY_RIGHT):
-		rotationDirection += 1
+		rotationDirection = 3
 		if !Input.is_key_pressed(KEY_SPACE) :
 			$PlayerSprite.play("RotateRight")
 		
 	if Input.is_key_pressed(KEY_SPACE):
 		$PlayerSprite.play("Shoot")
-		if rotationDirection > 0:
+		if cos(rotation) > 90:
 			velocity -= transform.y * speed
 		else:
 			velocity += transform.y * speed
