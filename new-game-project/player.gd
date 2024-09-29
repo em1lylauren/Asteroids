@@ -5,7 +5,7 @@ extends CharacterBody2D
 var speed = 10
 var rotationSpeed = 1
 var rotationDirection = 0
-var decay = 0.4 # decay so we aren't rotating forever
+var decay = 0.98 # decay so we aren't rotating forever
 
 @onready var screenSize = get_viewport_rect().size
 
@@ -17,7 +17,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	get_input()
-	rotation += rotationDirection  * rotationSpeed * delta * decay
+	rotation += rotationDirection  * rotationSpeed * delta
+	rotationDirection *= decay
+	
 	move_and_slide()
 	screenWrap()
 
