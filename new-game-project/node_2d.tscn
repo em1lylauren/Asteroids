@@ -1,6 +1,15 @@
-[gd_scene load_steps=20 format=3 uid="uid://dc0vnhomqwhwt"]
+[gd_scene load_steps=23 format=3 uid="uid://dc0vnhomqwhwt"]
 
+[ext_resource type="Script" path="res://player.gd" id="1_haord"]
 [ext_resource type="Texture2D" uid="uid://btnaqhpl0a4y4" path="res://Ship.png" id="1_r1g7l"]
+
+[sub_resource type="SystemFont" id="SystemFont_l73xr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rvj4h"]
+font = SubResource("SystemFont_l73xr")
+font_size = 19
+outline_color = Color(0.958157, 0.958157, 0.958157, 1)
+shadow_size = 3
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ubo2n"]
 atlas = ExtResource("1_r1g7l")
@@ -137,7 +146,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Shoot",
-"speed": 9.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -155,9 +164,45 @@ animations = [{
 }]
 
 [node name="Node2D" type="Node2D"]
+y_sort_enabled = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0708553, 0.0759138, 0.256822, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -202.0
+offset_top = 20.0
+offset_right = -16.0
+offset_bottom = 137.0
+grow_horizontal = 0
+text = "Emily Hartz-Kuzmicz
+11350337
+job346
+CMPT 306"
+label_settings = SubResource("LabelSettings_rvj4h")
+horizontal_alignment = 2
+
+[node name="Player" type="Node2D" parent="."]
+visibility_layer = 2
+z_index = 1
+position = Vector2(400, 400)
+script = ExtResource("1_haord")
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="Player"]
+visibility_layer = 2
+z_index = 1
 texture_filter = 1
+scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_2ee5b")
-animation = &"Idle"
-frame_progress = 0.762455
+animation = &"Shoot"
