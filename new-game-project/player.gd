@@ -1,4 +1,6 @@
 extends CharacterBody2D
+signal hit
+
 @export var Bullet : PackedScene = preload("res://bullet.tscn")
 
 var speed = 75
@@ -23,8 +25,14 @@ func _physics_process(delta: float) -> void:
 	rotation += rotationDirection  * rotationSpeed * delta
 	rotationDirection *= rotateDecay
 	velocity *= moveDecay
-
-	move_and_slide()
+	
+	var collision = move_and_collide(velocity * delta, false, 1)
+	if collision:
+		print("Collision - player")
+		#velocity = velocity.reflect(collision.get_normal())
+		velocity = velocity.slide(collision.get_normal())
+		takeDamage()
+		
 	screenWrap()
 	updateHealth()
 
@@ -52,7 +60,6 @@ func get_input():
 		
 		# spawn bullet
 		shoot()
-		$AudioStreamPlayer2D.play()
 		
 		if cos(rotation) > 90:
 			velocity -= transform.y * speed
@@ -77,10 +84,17 @@ func screenWrap():
 	if position.y < 0:
 		$PlayerSprite.play("Warp")
 		position.y = screenSize.y
-		
+
+# Takes 1 heart from the player
+func takeDamage():
+	$PlayerSprite.play("Hit")
+	$HitSound.play()
+	health -= 1
 
 # Spawns a new bullet object
 func shoot():
+	$ShootSound.play()
+	
 	var b = Bullet.instantiate()
 	owner.add_child(b)
 	b.transform = $BulletSpawnMarker.global_transform

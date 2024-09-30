@@ -27,13 +27,11 @@ func _on_score_timer_timeout():
 
 # Begins the score timer and asteroid spawn timer 
 func _on_start_timer_timeout():
-	print("Starting...")
 	$AsteroidTimer.start()
 	$ScoreTimer.start()
 
 # Spawns an asteroid object
 func _on_asteroid_timer_timeout():
-	print("Spawning asteroid...")
 	var asteroid = Asteroid.instantiate()
 	
 	# Randomize spawn location

@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends Node2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -9,9 +9,3 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
-# When an asteroid collides with something
-func _on_body_entered(body: Node) -> void:
-	print("Collision - asteroid")
-	if body is CharacterBody2D:
-		print("Collided with player: -1 health")
