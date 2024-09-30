@@ -27,8 +27,6 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	screenWrap()
-	
-	print($BulletSpawnMarker.global_position)
 
 
 # Gets input from the user
