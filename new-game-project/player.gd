@@ -87,6 +87,7 @@ func screenWrap():
 
 # Takes 1 heart from the player
 func takeDamage():
+	$DamageParticles.emitting = true
 	$PlayerSprite.play("Hit")
 	$HitSound.play()
 	health -= 1
@@ -106,6 +107,7 @@ func updateHealth():
 		$"../CanvasLayer/Hearts".play("Hearts_2")
 	elif health == 1:
 		$"../CanvasLayer/Hearts".play("Hearts_1")
+		$DamageParticles.scale_amount_max = 5
 	else:
 		$"../CanvasLayer/Hearts".play("Hearts_0")
 	

@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cx5it52vq2g5g"]
+[gd_scene load_steps=6 format=3 uid="uid://cx5it52vq2g5g"]
 
 [ext_resource type="Script" path="res://bullet.gd" id="1_b4s87"]
 [ext_resource type="Texture2D" uid="uid://bmwr8vbjghtmj" path="res://Sprites/Bullet.png" id="2_twbmy"]
+[ext_resource type="AudioStream" uid="uid://cukj2l1fke4v0" path="res://Sounds/explosionsound.wav" id="3_2gmxi"]
+[ext_resource type="Script" path="res://explosion.gd" id="4_2qr2g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75bmf"]
 size = Vector2(3, 10)
@@ -19,3 +21,10 @@ texture = ExtResource("2_twbmy")
 [node name="BulletCollision" type="CollisionShape2D" parent="Bullet"]
 position = Vector2(0.5, -1)
 shape = SubResource("RectangleShape2D_75bmf")
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_2gmxi")
+script = ExtResource("4_2qr2g")
+
+[connection signal="asteroidDestroy" from="Bullet" to="ExplosionSound" method="_on_bullet_asteroid_destroy"]
+[connection signal="body_entered" from="Bullet" to="Bullet" method="_on_body_entered"]

@@ -3,8 +3,7 @@ extends RigidBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	$AsteroidSprite.play("Idle")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -12,6 +11,8 @@ func _process(delta: float) -> void:
 
 # When an asteroid collides with something
 func _on_body_entered(body: Node) -> void:
-	print("Collision - asteroid")
 	if body is CharacterBody2D:
-		print("Collided with player: -1 health")
+		print("Collided with player - asteroid")
+
+func _on_despawn_timer_timeout() -> void:
+	queue_free()

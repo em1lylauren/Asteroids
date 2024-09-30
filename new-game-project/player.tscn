@@ -1871,5 +1871,22 @@ volume_db = -20.0
 [node name="HitSound" type="AudioStreamPlayer2D" parent="Player"]
 stream = ExtResource("11_t7n0q")
 
+[node name="DamageParticles" type="CPUParticles2D" parent="Player"]
+rotation = 0.872665
+scale = Vector2(2, 2)
+emitting = false
+amount = 10
+explosiveness = 0.2
+randomness = 0.1
+lifetime_randomness = 0.05
+emission_shape = 3
+emission_rect_extents = Vector2(10, 10)
+direction = Vector2(0, 0)
+gravity = Vector2(0, 0)
+initial_velocity_min = 25.0
+initial_velocity_max = 40.0
+scale_amount_max = 3.0
+color = Color(0.94, 0.468433, 0.1316, 1)
+
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(599, 300)

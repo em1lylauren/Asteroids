@@ -1,4 +1,5 @@
 extends Area2D
+signal asteroidDestroy
 
 var speed = 750
 
@@ -17,8 +18,17 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	position -= transform.y * speed * delta
-	
 
 # Despawns the bullet if out of frame to save resources
 func despawnBullet():		
-	owner.remove_child($".")
+	queue_free()
+
+# Bullet hits something
+func _on_body_entered(body: Node2D) -> void:
+	if body is RigidBody2D:
+		asteroidDestroy.emit()
+		body.get_child(0).play("Destroyed")
+		body.get_child(1).disabled = true
+		body.get_child(2).start()
+		despawnBullet.call_deferred()
+		

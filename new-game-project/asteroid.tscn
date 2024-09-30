@@ -1,18 +1,76 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqsxkogibehf4"]
+[gd_scene load_steps=9 format=3 uid="uid://cqsxkogibehf4"]
 
 [ext_resource type="Script" path="res://asteroid.gd" id="1_ohipm"]
-[ext_resource type="Texture2D" uid="uid://dwsd4x5tfl371" path="res://Sprites/Asteroid2.png" id="2_4seo3"]
+[ext_resource type="Texture2D" uid="uid://d2bpoovvpkmya" path="res://Sprites/Asteroid.png" id="2_2d631"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vv1uk"]
+atlas = ExtResource("2_2d631")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g418x"]
+atlas = ExtResource("2_2d631")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1bqk"]
+atlas = ExtResource("2_2d631")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7evgp"]
+atlas = ExtResource("2_2d631")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dk87f"]
+atlas = ExtResource("2_2d631")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_praeu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vv1uk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g418x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1bqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7evgp")
+}],
+"loop": false,
+"name": &"Destroyed",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dk87f")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
 
 [node name="Asteroid" type="RigidBody2D"]
 gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_ohipm")
 
-[node name="AsteroidSprite" type="Sprite2D" parent="."]
+[node name="AsteroidSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(2, 2)
-texture = ExtResource("2_4seo3")
+sprite_frames = SubResource("SpriteFrames_praeu")
+animation = &"Destroyed"
+frame = 3
+frame_progress = 1.0
 
 [node name="AsteroidCollision2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, -24, -15, -13, -21, -13, -24, -6, -17, 3, -14, 16, 2, 21, 12, 21, 15, 17, 15, 8, 24, -4, 23, -8, 17, -16)
 
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
