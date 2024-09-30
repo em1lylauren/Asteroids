@@ -12,7 +12,13 @@ func new_game():
 	Globals.health = 3
 	Globals.gameOver = false
 	
+	# Reset player values
 	$Player.get_child(1).position = Vector2(600, 300)
+	$Player.get_child(1).velocity = Vector2(0, 0)
+	$Player.get_child(1).rotation = 0
+	$Player.get_child(1).rotationDirection = 0
+	
+	# Reset player particle values
 	$Player.get_child(1).get_child(5).emitting = false
 	$Player.get_child(1).get_child(5).scale_amount_max = 3
 	
