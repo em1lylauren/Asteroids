@@ -1733,7 +1733,7 @@ animations = [{
 "speed": 17.0
 }]
 
-[node name="Node2D" type="Node2D"]
+[node name="Player" type="Node2D"]
 y_sort_enabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -1811,7 +1811,7 @@ scale = Vector2(3.8, 3.8)
 texture = ExtResource("6_85qsv")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(600, 275)
+position = Vector2(600, 313)
 script = ExtResource("3_715k7")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="Player"]

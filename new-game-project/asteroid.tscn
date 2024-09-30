@@ -1,40 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqsxkogibehf4"]
+[gd_scene load_steps=3 format=3 uid="uid://cqsxkogibehf4"]
 
-[ext_resource type="Texture2D" uid="uid://dp5usp86i0ro" path="res://Sprites/Asteroid1.png" id="1_88863"]
+[ext_resource type="Script" path="res://asteroid.gd" id="1_ohipm"]
 [ext_resource type="Texture2D" uid="uid://dwsd4x5tfl371" path="res://Sprites/Asteroid2.png" id="2_4seo3"]
-[ext_resource type="Texture2D" uid="uid://cr13ttv2wsxsx" path="res://Sprites/Asteroid3.png" id="3_70cvt"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xrqkl"]
-radius = 12.0
+[node name="Asteroid" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_ohipm")
 
-[node name="Node2D" type="Node2D"]
-
-[node name="Asteroid" type="Area2D" parent="."]
-
-[node name="AsteroidSprite" type="Sprite2D" parent="Asteroid"]
+[node name="AsteroidSprite" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_88863")
-
-[node name="AsteroidCollision" type="CollisionPolygon2D" parent="Asteroid"]
-polygon = PackedVector2Array(9, -9, 1, -6, -6, -8, -10, -4, -10, 4, -4, 10, 7, 9, 8, 7, 9, 0, 12, -4)
-
-[node name="Asteroid2" type="Area2D" parent="."]
-
-[node name="AsteroidSprite" type="Sprite2D" parent="Asteroid2"]
-texture_filter = 1
-position = Vector2(47, 1)
+scale = Vector2(2, 2)
 texture = ExtResource("2_4seo3")
 
-[node name="AsteroidCollision" type="CollisionPolygon2D" parent="Asteroid2"]
-polygon = PackedVector2Array(47, -11, 40, -6, 36, -5, 36, 1, 40, 3, 40, 9, 46, 11, 53, 12, 55, 5, 60, -2, 53, -8)
-
-[node name="Asteroid3" type="Area2D" parent="."]
-
-[node name="AsteroidSprite" type="Sprite2D" parent="Asteroid3"]
-texture_filter = 1
-position = Vector2(87, 1)
-texture = ExtResource("3_70cvt")
-
-[node name="AsteroidCollision" type="CollisionShape2D" parent="Asteroid3"]
-position = Vector2(87.5, 1.2)
-shape = SubResource("CircleShape2D_xrqkl")
+[node name="AsteroidCollision2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -24, -15, -13, -21, -13, -24, -6, -17, 3, -14, 16, 2, 21, 12, 21, 15, 17, 15, 8, 24, -4, 23, -8, 17, -16)
