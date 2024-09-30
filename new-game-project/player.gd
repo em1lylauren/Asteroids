@@ -27,10 +27,9 @@ func _physics_process(delta: float) -> void:
 	
 	var collision = move_and_collide(velocity * delta, false, 1)
 	if collision:
-		print("Collision - player")
+		#print("Collision - player")
 		#velocity = velocity.reflect(collision.get_normal())
 		velocity = velocity.slide(collision.get_normal())
-		takeDamage()
 		
 	screenWrap()
 	updateHealth()

@@ -72,5 +72,7 @@ polygon = PackedVector2Array(0, -24, -15, -13, -21, -13, -24, -6, -17, 3, -14, 1
 wait_time = 0.2
 one_shot = true
 
+[node name="InvincibilityFrameTimer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
