@@ -87,11 +87,11 @@ func shoot():
 	
 func updateHealth():
 	if health == 3:
-		$"../CanvasLayer/Hearts".play("Health_3")
+		$"../CanvasLayer/Hearts".play("Hearts_3")
 	elif health == 2:
-		$"../CanvasLayer/Hearts".play("Health_2")
+		$"../CanvasLayer/Hearts".play("Hearts_2")
 	elif health == 1:
-		$"../CanvasLayer/Hearts".play("Health_1")
+		$"../CanvasLayer/Hearts".play("Hearts_1")
 	else:
-		$"../CanvasLayer/Hearts".play("Health_0")
+		$"../CanvasLayer/Hearts".play("Hearts_0")
 	

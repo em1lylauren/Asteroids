@@ -3,13 +3,13 @@
 [ext_resource type="Script" path="res://background.gd" id="1_oks0x"]
 [ext_resource type="FontFile" uid="uid://b6ivruwblgr2u" path="res://PixelifySans-VariableFont_wght.ttf" id="1_syfjs"]
 [ext_resource type="Texture2D" uid="uid://cgpwtya8qsur4" path="res://Sprites/Star.png" id="2_u7yq8"]
-[ext_resource type="Texture2D" uid="uid://cl3nag6g2tv58" path="res://Sprites/planet1.png" id="3_4esyq"]
 [ext_resource type="Script" path="res://player.gd" id="3_715k7"]
 [ext_resource type="Texture2D" uid="uid://qhd752vhmo56" path="res://Sprites/Healthbar.png" id="3_encj7"]
 [ext_resource type="Texture2D" uid="uid://72uwut4mfj1m" path="res://Sprites/Ship.png" id="4_ov6e1"]
-[ext_resource type="Texture2D" uid="uid://7t7f82yctq8" path="res://Sprites/planet2.png" id="4_w8q8n"]
+[ext_resource type="Texture2D" uid="uid://cl3nag6g2tv58" path="res://Sprites/Planet1.png" id="5_4au2d"]
 [ext_resource type="AudioStream" uid="uid://dtbf57w5fx3u1" path="res://Sounds/shootsound.wav" id="5_wp1g8"]
 [ext_resource type="Texture2D" uid="uid://d0npxb2hlbw2c" path="res://Sprites/Planet3.png" id="6_85qsv"]
+[ext_resource type="Texture2D" uid="uid://7t7f82yctq8" path="res://Sprites/Planet2.png" id="6_eaonc"]
 
 [sub_resource type="Image" id="Image_f61nk"]
 data = {
@@ -1794,14 +1794,14 @@ randomness = 0.2
 texture_filter = 1
 position = Vector2(190.25, 123.5)
 scale = Vector2(4.015, 4)
-texture = ExtResource("3_4esyq")
+texture = ExtResource("5_4au2d")
 
 [node name="Planet2" type="Sprite2D" parent="CanvasLayer"]
 texture_filter = 1
 position = Vector2(1029, 418)
 rotation = 0.127409
 scale = Vector2(4.431, 4.4)
-texture = ExtResource("4_w8q8n")
+texture = ExtResource("6_eaonc")
 flip_h = true
 
 [node name="Planet3" type="Sprite2D" parent="CanvasLayer"]
