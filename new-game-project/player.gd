@@ -1,6 +1,4 @@
 extends CharacterBody2D
-
-@export var AnimatedSprite : AnimatedSprite2D 
 @export var Bullet : PackedScene = preload("res://bullet.tscn")
 
 var speed = 75
@@ -11,6 +9,7 @@ var rotateDecay = 0.98 # decay so we aren't rotating forever
 var moveDecay = 0.995 
 
 @onready var screenSize = get_viewport_rect().size
+@onready var health = 3
 
 
 # Called when the node enters the scene tree for the first time.
@@ -24,9 +23,10 @@ func _physics_process(delta: float) -> void:
 	rotation += rotationDirection  * rotationSpeed * delta
 	rotationDirection *= rotateDecay
 	velocity *= moveDecay
-	
+
 	move_and_slide()
 	screenWrap()
+	updateHealth()
 
 
 # Gets input from the user
@@ -84,3 +84,14 @@ func shoot():
 	var b = Bullet.instantiate()
 	owner.add_child(b)
 	b.transform = $BulletSpawnMarker.global_transform
+	
+func updateHealth():
+	if health == 3:
+		$"../CanvasLayer/Hearts".play("Health_3")
+	elif health == 2:
+		$"../CanvasLayer/Hearts".play("Health_2")
+	elif health == 1:
+		$"../CanvasLayer/Hearts".play("Health_1")
+	else:
+		$"../CanvasLayer/Hearts".play("Health_0")
+	
