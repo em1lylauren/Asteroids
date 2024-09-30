@@ -24,6 +24,9 @@ wait_time = 2.0
 one_shot = true
 autostart = true
 
+[node name="RestartTimer" type="Timer" parent="."]
+one_shot = true
+
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(598, 269)
 
@@ -36,3 +39,4 @@ rotation = -0.00641017
 
 [connection signal="timeout" from="AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="timeout" from="RestartTimer" to="." method="_on_restart_timer_timeout"]

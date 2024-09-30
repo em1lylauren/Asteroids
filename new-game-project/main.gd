@@ -9,15 +9,25 @@ func _ready() -> void:
 # Starts the game
 func new_game():
 	Globals.SCORE = 0
+	Globals.health = 3
+	Globals.gameOver = false
+	
+	$Player.get_child(1).position = Vector2(600, 300)
+	$Player.get_child(1).get_child(5).emitting = false
+	$Player.get_child(1).get_child(5).scale_amount_max = 3
+	
 	$StartTimer.start()
 
 # Ends the game
 func game_over():
 	$AsteroidTimer.stop()
+	$RestartTimer.start()
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
+	if Globals.gameOver && $RestartTimer.is_stopped():
+		game_over()
 
 # Begins the score timer and asteroid spawn timer 
 func _on_start_timer_timeout():
@@ -52,3 +62,8 @@ func _on_asteroid_timer_timeout():
 	asteroid.get_child(1).polygon = polygon
 	
 	add_child(asteroid)
+
+
+func _on_restart_timer_timeout() -> void:
+	print("Restarting")
+	new_game()

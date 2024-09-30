@@ -10,8 +10,6 @@ var rotateDecay = 0.98 # decay so we aren't rotating forever
 var moveDecay = 0.995 
 
 @onready var screenSize = get_viewport_rect().size
-@onready var health = 3
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,7 +18,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	get_input()
+	if !Globals.gameOver:
+		get_input()
+		
+		if Globals.health <= 0:
+			die()
+
 	rotation += rotationDirection  * rotationSpeed * delta
 	rotationDirection *= rotateDecay
 	velocity *= moveDecay
@@ -34,6 +37,7 @@ func _physics_process(delta: float) -> void:
 	screenWrap()
 	updateHealth()
 	showScore()
+	
 
 
 # Gets input from the user
@@ -90,7 +94,7 @@ func takeDamage():
 	$DamageParticles.emitting = true
 	$PlayerSprite.play("Hit")
 	$HitSound.play()
-	health -= 1
+	Globals.health -= 1
 
 
 # Spawns a new bullet object
@@ -102,16 +106,27 @@ func shoot():
 	b.transform = $BulletSpawnMarker.global_transform
 
 
+# Updates the health bar
 func updateHealth():
-	if health == 3:
+	if Globals.health == 3:
 		$"../CanvasLayer/Hearts".play("Hearts_3")
-	elif health == 2:
+	elif Globals.health == 2:
 		$"../CanvasLayer/Hearts".play("Hearts_2")
-	elif health == 1:
+	elif Globals.health == 1:
 		$"../CanvasLayer/Hearts".play("Hearts_1")
 		$DamageParticles.scale_amount_max = 5
 	else:
 		$"../CanvasLayer/Hearts".play("Hearts_0")
+		$DamageParticles.scale_amount_max = 8
 
+
+# Updates the player's score
 func showScore():
 	$"../CanvasLayer/ScoreUI".text = str("SCORE : ", Globals.SCORE)
+
+
+# Plays the death animation and ends the game
+func die():
+	$PlayerSprite.play("Die")
+	Globals.gameOver = true
+	
