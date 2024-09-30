@@ -1,7 +1,6 @@
 extends Node
 
 @export var Asteroid : PackedScene
-var score
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,26 +8,20 @@ func _ready() -> void:
 
 # Starts the game
 func new_game():
-	score = 0
+	Globals.SCORE = 0
 	$StartTimer.start()
 
 # Ends the game
 func game_over():
-	$ScoreTimer.stop()
 	$AsteroidTimer.stop()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
-
-# Adds one to the score
-func _on_score_timer_timeout():
-	score += 1
 
 # Begins the score timer and asteroid spawn timer 
 func _on_start_timer_timeout():
 	$AsteroidTimer.start()
-	$ScoreTimer.start()
 
 # Spawns an asteroid object
 func _on_asteroid_timer_timeout():

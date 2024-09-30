@@ -1,5 +1,4 @@
 extends CharacterBody2D
-signal hit
 
 @export var Bullet : PackedScene = preload("res://bullet.tscn")
 
@@ -35,6 +34,7 @@ func _physics_process(delta: float) -> void:
 		
 	screenWrap()
 	updateHealth()
+	showScore()
 
 
 # Gets input from the user
@@ -65,8 +65,8 @@ func get_input():
 			velocity -= transform.y * speed
 		else:
 			velocity += transform.y * speed
-	
-	
+
+
 # Checks if user OOB and wraps them around to the other end of the screen
 func screenWrap():
 	# horizontal wrap
@@ -85,12 +85,14 @@ func screenWrap():
 		$PlayerSprite.play("Warp")
 		position.y = screenSize.y
 
+
 # Takes 1 heart from the player
 func takeDamage():
 	$DamageParticles.emitting = true
 	$PlayerSprite.play("Hit")
 	$HitSound.play()
 	health -= 1
+
 
 # Spawns a new bullet object
 func shoot():
@@ -99,7 +101,8 @@ func shoot():
 	var b = Bullet.instantiate()
 	owner.add_child(b)
 	b.transform = $BulletSpawnMarker.global_transform
-	
+
+
 func updateHealth():
 	if health == 3:
 		$"../CanvasLayer/Hearts".play("Hearts_3")
@@ -110,4 +113,6 @@ func updateHealth():
 		$DamageParticles.scale_amount_max = 5
 	else:
 		$"../CanvasLayer/Hearts".play("Hearts_0")
-	
+
+func showScore():
+	$"../CanvasLayer/ScoreUI".text = str("SCORE : ", Globals.SCORE)

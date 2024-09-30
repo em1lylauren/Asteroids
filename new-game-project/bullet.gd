@@ -27,8 +27,13 @@ func despawnBullet():
 func _on_body_entered(body: Node2D) -> void:
 	if body is RigidBody2D:
 		asteroidDestroy.emit()
+		
+		Globals.SCORE += 10
+		
+		# Explode asteroid                                                                                                                                                                                                  
 		body.get_child(0).play("Destroyed")
-		body.get_child(1).disabled = true
+		body.get_child(1).set_deferred("disabled", true)     
 		body.get_child(2).start()
+		
 		despawnBullet.call_deferred()
 		
