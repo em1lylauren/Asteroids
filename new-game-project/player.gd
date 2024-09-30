@@ -52,6 +52,7 @@ func get_input():
 		
 		# spawn bullet
 		shoot()
+		$AudioStreamPlayer2D.play()
 		
 		if cos(rotation) > 90:
 			velocity -= transform.y * speed
