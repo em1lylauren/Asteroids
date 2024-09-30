@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-@export var AnimatedSprite : AnimatedSprite2D
+@export var AnimatedSprite : AnimatedSprite2D 
+@export var Bullet : PackedScene = preload("res://bullet.tscn")
 
 var speed = 75
 var rotationSpeed = 1
@@ -26,6 +27,8 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	screenWrap()
+	
+	print($BulletSpawnMarker.global_position)
 
 
 # Gets input from the user
@@ -45,9 +48,13 @@ func get_input():
 		if !Input.is_key_pressed(KEY_SPACE) :
 			$PlayerSprite.play("RotateRight")
 
-	# shoot bullet
+	# space bar pressed
 	if Input.is_action_just_pressed("ui_select"):
 		$PlayerSprite.play("Shoot")
+		
+		# spawn bullet
+		shoot()
+		
 		if cos(rotation) > 90:
 			velocity -= transform.y * speed
 		else:
@@ -72,4 +79,9 @@ func screenWrap():
 		$PlayerSprite.play("Warp")
 		position.y = screenSize.y
 		
-	
+
+# Spawns a new bullet object
+func shoot():
+	var b = Bullet.instantiate()
+	owner.add_child(b)
+	b.transform = $BulletSpawnMarker.global_transform
