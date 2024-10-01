@@ -53,6 +53,9 @@ func _on_asteroid_timer_timeout():
 	direction += randf_range(-PI / 4, PI / 4)
 	asteroid.rotation = direction
 	
+	var spin = randf_range(1.0, 10.0)
+	asteroid.angular_velocity = spin
+	
 	# Randomize velocity
 	var velocity = Vector2(randf_range(150.0, 250.0), 0.0)
 	asteroid.linear_velocity = velocity.rotated(direction)

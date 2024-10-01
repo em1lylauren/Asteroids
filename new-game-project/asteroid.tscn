@@ -55,6 +55,7 @@ animations = [{
 gravity_scale = 0.0
 contact_monitor = true
 max_contacts_reported = 10
+angular_damp_mode = 1
 script = ExtResource("1_ohipm")
 
 [node name="AsteroidSprite" type="AnimatedSprite2D" parent="."]
