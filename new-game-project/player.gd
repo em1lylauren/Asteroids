@@ -30,10 +30,9 @@ func _physics_process(delta: float) -> void:
 	velocity *= moveDecay
 	
 	var collision = move_and_collide(velocity * delta, false, 1)
-	if collision || test_move(transform, Vector2(1, 0)):
+	if collision || test_move(transform, Vector2(1, 0) * delta):
 		print("Collision - player")
 		if collision:
-			#velocity = velocity.slide(collision.get_normal())
 			var motion = collision.get_remainder().bounce(collision.get_normal())
 			velocity = velocity.bounce(collision.get_normal())
 			move_and_collide(motion)
