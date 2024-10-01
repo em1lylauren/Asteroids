@@ -50,7 +50,7 @@ func _on_asteroid_timer_timeout():
 	
 	# Randomize direction
 	var direction = spawnLocation.rotation + PI / 2
-	direction += randf_range(-PI / 4, PI / 4)
+	#direction += randf_range(-PI / 4, PI / 4)
 	asteroid.rotation = direction
 	
 	var spin = randf_range(1.0, 10.0)
@@ -83,14 +83,15 @@ func spawnChildAsteroids(parent):
 	
 	# Give parent rotation
 	asteroid1.rotation = parent.rotation
-	asteroid2.rotation = parent.rotation * -1
+	asteroid2.rotation = parent.rotation
 	
-	# Give random velocity
-	var direction = parent.rotation + PI / 2
-	direction += randf_range(-PI / 4, PI / 4)
-	var velocity = Vector2(randf_range(100.0, 150.0), 0.0)
-	asteroid1.linear_velocity = velocity.rotated(direction)
-	asteroid2.linear_velocity = velocity.rotated(direction * -1)
+	# Give parent linear velocity
+	asteroid1.linear_velocity = parent.linear_velocity
+	asteroid2.linear_velocity = -parent.linear_velocity
+	
+	# Give parent angular velocity
+	asteroid1.angular_velocity = parent.angular_velocity
+	asteroid2.angular_velocity = parent.angular_velocity
 	
 	# Randomize size
 	var size = parent.get_child(0).scale / 2
