@@ -11,6 +11,7 @@ var moveDecay = 0.995
 
 @onready var screenSize = get_viewport_rect().size
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$PlayerSprite.play("Idle")
@@ -30,9 +31,14 @@ func _physics_process(delta: float) -> void:
 	
 	var collision = move_and_collide(velocity * delta, false, 1)
 	if collision:
-		#print("Collision - player")
+		print("Collision - player")
 		#velocity = velocity.reflect(collision.get_normal())
 		velocity = velocity.slide(collision.get_normal())
+		
+		# Give the player some i-frames so they don't instantly lose all health
+		if $"../InvincibilityFrameTimer".is_stopped():
+			$"../InvincibilityFrameTimer".start()
+			takeDamage()
 		
 	screenWrap()
 	updateHealth()

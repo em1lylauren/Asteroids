@@ -1877,7 +1877,7 @@ animation = &"Die"
 
 [node name="PlayerCollision" type="CollisionPolygon2D" parent="Player"]
 scale = Vector2(0.55, 0.55)
-polygon = PackedVector2Array(0, -69.0909, -18.1818, -30.9091, -23.6364, -56.3636, -32.7273, -12.7273, -49.0909, 7.27271, -36.3636, 10.9091, -34.5455, 27.2728, -23.6364, 25.4545, 1.81818, 27.2728, 10.9091, 25.4545, 32.7273, 25.4546, 34.5454, 12.7273, 47.2727, 7.27271, 32.7273, -16.3636, 23.6364, -52.7272, 18.1818, -32.7272)
+polygon = PackedVector2Array(0, -69.0909, -18.1818, -30.9091, -23.6364, -56.3636, -32.7273, -12.7273, -49.0909, 7.27271, -38.1818, 12.7273, -38.1818, 29.0909, -23.6364, 27.2727, 0, 30.9091, 14.5454, 27.2727, 34.5454, 27.2727, 36.3636, 14.5455, 47.2727, 7.27271, 32.7273, -16.3636, 23.6364, -52.7272, 18.1818, -32.7272)
 
 [node name="BulletSpawnMarker" type="Marker2D" parent="Player"]
 position = Vector2(0, -38)
@@ -1908,3 +1908,9 @@ color = Color(0.94, 0.468433, 0.1316, 1)
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(599, 300)
+
+[node name="InvincibilityFrameTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="timeout" from="InvincibilityFrameTimer" to="CanvasLayer" method="_on_invincibility_frame_timer_timeout"]

@@ -16,13 +16,9 @@ func _process(_delta: float) -> void:
 
 # When an asteroid collides with something
 func _on_body_entered(body: Node) -> void:
-	if body is CharacterBody2D:
-		#print("Collided with player - asteroid")
-		
-		# Give the player some i-frames so they don't instantly lose all health
-		if $InvincibilityFrameTimer.is_stopped():
-			$InvincibilityFrameTimer.start()
-			body.takeDamage()
+	#if body is CharacterBody2D:
+	#	print("Collided with player - asteroid")
+	pass
 
 # Be destroyed 
 func beDestroyed():

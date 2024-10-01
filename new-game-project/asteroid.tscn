@@ -54,25 +54,21 @@ animations = [{
 [node name="Asteroid" type="RigidBody2D"]
 gravity_scale = 0.0
 contact_monitor = true
-max_contacts_reported = 1
+max_contacts_reported = 10
 script = ExtResource("1_ohipm")
 
 [node name="AsteroidSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_praeu")
-animation = &"Destroyed"
-frame = 3
-frame_progress = 1.0
+animation = &"Idle"
 
 [node name="AsteroidCollision2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(0, -24, -15, -13, -21, -13, -24, -6, -17, 3, -14, 16, 2, 21, 12, 21, 15, 17, 15, 8, 24, -4, 23, -8, 17, -16)
+polygon = PackedVector2Array(-1, -25, -16, -15, -23, -14, -27, -2, -18, 4, -16, 17, 2, 22, 14, 22, 16, 17, 17, 8, 25, -4, 24, -8, 17, -16)
 
 [node name="DespawnTimer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
-
-[node name="InvincibilityFrameTimer" type="Timer" parent="."]
 
 [node name="AsterioidOOBTimer" type="Timer" parent="."]
 wait_time = 3.0
