@@ -30,10 +30,13 @@ func _physics_process(delta: float) -> void:
 	velocity *= moveDecay
 	
 	var collision = move_and_collide(velocity * delta, false, 1)
-	if collision:
+	if collision || test_move(transform, Vector2(1, 0)):
 		print("Collision - player")
-		#velocity = velocity.reflect(collision.get_normal())
-		velocity = velocity.slide(collision.get_normal())
+		if collision:
+			#velocity = velocity.slide(collision.get_normal())
+			var motion = collision.get_remainder().bounce(collision.get_normal())
+			velocity = velocity.bounce(collision.get_normal())
+			move_and_collide(motion)
 		
 		# Give the player some i-frames so they don't instantly lose all health
 		if $"../InvincibilityFrameTimer".is_stopped():

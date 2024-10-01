@@ -1907,7 +1907,7 @@ scale_amount_max = 3.0
 color = Color(0.94, 0.468433, 0.1316, 1)
 
 [node name="Camera" type="Camera2D" parent="."]
-position = Vector2(599, 300)
+position = Vector2(602, 306)
 
 [node name="InvincibilityFrameTimer" type="Timer" parent="."]
 wait_time = 1.5
