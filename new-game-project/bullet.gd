@@ -31,9 +31,10 @@ func _on_body_entered(body: Node2D) -> void:
 		Globals.SCORE += 10
 		
 		# Explode asteroid                                                                                                                                                                                                  
-		body.get_child(0).play("Destroyed")
-		body.get_child(1).set_deferred("disabled", true)     
-		body.get_child(2).start()
+		#body.get_child(0).play("Destroyed")
+		#body.get_child(1).set_deferred("disabled", true)     
+		#body.get_child(2).start()
+		body.beDestroyed()
 		
 		despawnBullet.call_deferred()
 		

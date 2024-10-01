@@ -69,6 +69,31 @@ func _on_asteroid_timer_timeout():
 	
 	add_child(asteroid)
 
+# Breaks an existing asteroid into pieces
+func spawnChildAsteroid(parent):
+	var asteroid = Asteroid.instantiate()
+	
+	# Give parent spawn location
+	asteroid.position = parent.position
+	
+	# Give parent direction
+	asteroid.rotation = parent.rotation
+	
+	# Give parent velocity
+	asteroid.linear_velocity = parent.linear_velocity
+	
+	# Randomize size
+	var size = parent.get_child(0).scale / 2
+	asteroid.get_child(0).scale = size
+
+	# Scale the collision mesh
+	var polygon = asteroid.get_child(1).polygon
+	for i in polygon.size():
+		polygon.set(i, polygon[i] * (size * 0.5))
+	asteroid.get_child(1).polygon = polygon
+	
+	add_child(asteroid)
+
 
 func _on_restart_timer_timeout() -> void:
 	print("Restarting")

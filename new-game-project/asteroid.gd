@@ -19,5 +19,16 @@ func _on_body_entered(body: Node) -> void:
 			$InvincibilityFrameTimer.start()
 			body.takeDamage()
 
+# Be destroyed 
+func beDestroyed():
+	$AsteroidSprite.play("Destroyed")
+	$AsteroidCollision2D.set_deferred("disabled", true)     
+	$DespawnTimer.start()
+	
+	# Spawn 2 children asteroids if above a certain size threshold
+	if self.get_child(0).scale >= Vector2(1.5, 1.5):
+		get_node("../../Main").spawnChildAsteroid(self)
+		get_node("../../Main").spawnChildAsteroid(self)
+
 func _on_despawn_timer_timeout() -> void:
 	queue_free()
