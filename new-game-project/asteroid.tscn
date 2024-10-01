@@ -74,5 +74,9 @@ one_shot = true
 
 [node name="InvincibilityFrameTimer" type="Timer" parent="."]
 
+[node name="AsterioidOOBTimer" type="Timer" parent="."]
+wait_time = 3.0
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
+[connection signal="timeout" from="AsterioidOOBTimer" to="." method="_on_asterioid_oob_timer_timeout"]

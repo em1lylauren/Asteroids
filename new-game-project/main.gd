@@ -70,29 +70,43 @@ func _on_asteroid_timer_timeout():
 	add_child(asteroid)
 
 # Breaks an existing asteroid into pieces
-func spawnChildAsteroid(parent):
-	var asteroid = Asteroid.instantiate()
+func spawnChildAsteroids(parent):
+	var asteroid1 = Asteroid.instantiate()
+	var asteroid2 = Asteroid.instantiate()
 	
 	# Give parent spawn location
-	asteroid.position = parent.position
+	asteroid1.position = parent.position
+	asteroid2.position = parent.position
 	
-	# Give parent direction
-	asteroid.rotation = parent.rotation
+	# Give parent rotation
+	asteroid1.rotation = parent.rotation
+	asteroid2.rotation = parent.rotation * -1
 	
-	# Give parent velocity
-	asteroid.linear_velocity = parent.linear_velocity
+	# Give random velocity
+	var direction = parent.rotation + PI / 2
+	direction += randf_range(-PI / 4, PI / 4)
+	var velocity = Vector2(randf_range(100.0, 150.0), 0.0)
+	asteroid1.linear_velocity = velocity.rotated(direction)
+	asteroid2.linear_velocity = velocity.rotated(direction * -1)
 	
 	# Randomize size
 	var size = parent.get_child(0).scale / 2
-	asteroid.get_child(0).scale = size
+	asteroid1.get_child(0).scale = size
+	asteroid2.get_child(0).scale = size
 
 	# Scale the collision mesh
-	var polygon = asteroid.get_child(1).polygon
+	var polygon = asteroid1.get_child(1).polygon
 	for i in polygon.size():
 		polygon.set(i, polygon[i] * (size * 0.5))
-	asteroid.get_child(1).polygon = polygon
+	asteroid1.get_child(1).polygon = polygon
 	
-	add_child(asteroid)
+	polygon = asteroid2.get_child(1).polygon
+	for i in polygon.size():
+		polygon.set(i, polygon[i] * (size * 0.5))
+	asteroid2.get_child(1).polygon = polygon
+	
+	add_child.call_deferred(asteroid1)
+	add_child.call_deferred(asteroid2)
 
 
 func _on_restart_timer_timeout() -> void:

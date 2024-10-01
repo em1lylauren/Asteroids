@@ -3,8 +3,6 @@ signal asteroidDestroy
 
 var speed = 750
 
-@onready var screenSize = get_viewport_rect().size
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var timer := Timer.new()
@@ -28,12 +26,10 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is RigidBody2D:
 		asteroidDestroy.emit()
 		
-		Globals.SCORE += 10
+		# Increase score by scale of asteroid
+		Globals.SCORE += int(body.get_child(0).scale.x * 10)
 		
-		# Explode asteroid                                                                                                                                                                                                  
-		#body.get_child(0).play("Destroyed")
-		#body.get_child(1).set_deferred("disabled", true)     
-		#body.get_child(2).start()
+		# Explode asteroid
 		body.beDestroyed()
 		
 		despawnBullet.call_deferred()
