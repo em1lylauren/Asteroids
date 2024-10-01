@@ -14,8 +14,6 @@ func _process(delta: float) -> void:
 	
 	if $AsterioidOOBTimer.is_stopped():
 		$AsterioidOOBTimer.start()
-		
-	rotation_degrees += PI * delta
 
 
 # Be destroyed 
