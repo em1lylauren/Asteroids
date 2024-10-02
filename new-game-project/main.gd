@@ -41,6 +41,9 @@ func _on_start_timer_timeout():
 
 # Spawns an asteroid object
 func _on_asteroid_timer_timeout():
+	# Randomize spawn timer for more unpredictability 
+	$AsteroidTimer.wait_time = randf_range(2.5, 6)
+	
 	var asteroid = Asteroid.instantiate()
 	
 	# Randomize spawn location
@@ -50,10 +53,11 @@ func _on_asteroid_timer_timeout():
 	
 	# Randomize direction
 	var direction = spawnLocation.rotation + PI / 2
-	#direction += randf_range(-PI / 4, PI / 4)
+	direction += randf_range(-PI / 4, PI / 4)
 	asteroid.rotation = direction
+	asteroid.look_at(Vector2(598, 269))
 	
-	var spin = randf_range(1.0, 10.0)
+	var spin = randf_range(1.0, 6.0)
 	asteroid.angular_velocity = spin
 	
 	# Randomize velocity

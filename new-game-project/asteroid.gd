@@ -24,7 +24,7 @@ func beDestroyed():
 	
 	# Spawn 2 children asteroids if above a certain size threshold 
 	# (so we don't create a child asteroid that is too small)
-	if self.get_child(0).scale >= Vector2(1.75, 1.75):
+	if self.get_child(0).scale >= Vector2(1.55, 1.55):
 		get_node("../../Main").spawnChildAsteroids(self)
 
 

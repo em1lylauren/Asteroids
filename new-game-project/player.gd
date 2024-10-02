@@ -7,7 +7,7 @@ var rotationSpeed = 1
 var rotationDirection = 0
 
 var rotateDecay = 0.98 # decay so we aren't rotating forever
-var moveDecay = 0.995 
+var moveDecay = 0.996 
 
 @onready var screenSize = get_viewport_rect().size
 
