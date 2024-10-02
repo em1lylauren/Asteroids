@@ -29,18 +29,15 @@ func _physics_process(delta: float) -> void:
 	rotationDirection *= rotateDecay
 	velocity *= moveDecay
 	
-	var collision = move_and_collide(velocity * delta, false, 1)
-	if collision || test_move(transform, Vector2(1, 0) * delta):
-		print("Collision - player")
-		if collision:
-			var motion = collision.get_remainder().bounce(collision.get_normal())
-			velocity = velocity.bounce(collision.get_normal())
-			move_and_collide(motion)
-		
-		# Give the player some i-frames so they don't instantly lose all health
-		if $"../InvincibilityFrameTimer".is_stopped():
-			$"../InvincibilityFrameTimer".start()
-			takeDamage()
+	move_and_slide()
+	for i in get_slide_collision_count():
+		if get_slide_collision(i).get_collider() is RigidBody2D:
+			#print("Asteroid Collision")
+			
+			# Give the player some i-frames so they don't instantly lose all health
+			if $"../InvincibilityFrameTimer".is_stopped():
+				$"../InvincibilityFrameTimer".start()
+				takeDamage()
 		
 	screenWrap()
 	updateHealth()
