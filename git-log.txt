@@ -1,0 +1,213 @@
+Emily Hartz-Kuzmicz
+11350337
+job346
+
+commit 615a193b8347c5f6bc63330faf9a321000949079
+Author: job346 <job346@usask.ca>
+Date:   Wed Oct 2 16:23:39 2024 -0600
+
+    minor tweaks--changed default test window size to be fullscreen
+
+commit 51d7255cd00cbce0192cdb4db1e906c71341f1b4
+Author: job346 <job346@usask.ca>
+Date:   Wed Oct 2 16:04:54 2024 -0600
+
+    ONCE AND FOR ALL... fixed collision. now moving or not moving, if an asteroid hits the player, the player will take damagegit add .
+
+commit 892268e39a0da091f7824579c96e894009a3d168
+Author: job346 <job346@usask.ca>
+Date:   Tue Oct 1 17:09:08 2024 -0600
+
+    fixed items looking blurry when upscaling window
+
+commit f340189dc0e96222c4fa4c60a6ab488c0d89e34d
+Author: job346 <job346@usask.ca>
+Date:   Tue Oct 1 16:30:30 2024 -0600
+
+    asteroids now split visually in a way that i like
+
+commit f07b0aa19f9096026b04a24d0fe5797112db76d7
+Author: job346 <job346@usask.ca>
+Date:   Tue Oct 1 16:11:41 2024 -0600
+
+    added randomized angular velocity to asteroids on spawn
+
+commit 6d991bfa5a64408c7f9b74e255cd57b6443e33ab
+Author: job346 <job346@usask.ca>
+Date:   Tue Oct 1 15:48:29 2024 -0600
+
+    player bounces off asteroids on collision (ACTUALLY THIS TIME)
+
+commit 6a29729cb4b7fc160124d249a0e9d5b1c0b4175e
+Author: job346 <job346@usask.ca>
+Date:   Tue Oct 1 15:46:56 2024 -0600
+
+    player bounces off asteroids on collision
+
+commit 5b492f7af17bcd4bf97b23d3799a6010d2e2fddb
+Author: job346 <job346@usask.ca>
+Date:   Tue Oct 1 12:32:42 2024 -0600
+
+    fixed player/asteroid collision not always being detected. moved collision detection to player instead of on asteroid, moved i-frame timer to player
+
+commit e8a08e26400b55a2e8006585f3b40f5b253a3d10
+Author: job346 <job346@usask.ca>
+Date:   Mon Sep 30 18:54:53 2024 -0600
+
+    despawn asteroids if out of bounds to save resources. points added to score by destroying asteroids now depends on the size of the destroyed asteroid
+
+commit dbce97d2346ab51ed5bd10453c82e825a636455a
+Author: job346 <job346@usask.ca>
+Date:   Mon Sep 30 18:18:59 2024 -0600
+
+    destroyed asteroids now split into 2 children if above a certain size
+
+commit b848be17dc5b7541ae97fc34d0c4136399c91a24
+Author: EmilyH <emlhk080804@gmail.com>
+Date:   Mon Sep 30 17:16:01 2024 -0600
+
+    player now respawns in middle of screen with default movement values
+
+commit c93a2cbac1f09aadef5b6873f1706678f234a50f
+Author: EmilyH <emlhk080804@gmail.com>
+Date:   Mon Sep 30 16:59:44 2024 -0600
+
+    game now ends when player health is 0, and restarts after 1 second
+
+commit 4f23d6f8c51b3d4d9a8c034811f39a475b2c7c3e
+Author: EmilyH <emlhk080804@gmail.com>
+Date:   Mon Sep 30 16:29:22 2024 -0600
+
+    give player i-frames after being hit by asteroid
+
+commit 938480cf83f4d3d30efabf626ae4865acbec0804
+Author: EmilyH <emlhk080804@gmail.com>
+Date:   Mon Sep 30 16:19:11 2024 -0600
+
+    score displayed at top of screen
+
+commit 011961fa7837ccf6510b735e4109a2f13ab40137
+Author: EmilyH <emlhk080804@gmail.com>
+Date:   Mon Sep 30 15:47:48 2024 -0600
+
+    asteroid destroy animation and sound when hit by bullet
+
+commit 912868aba6f8188f28cff86e5e27a641458e64e9
+Author: EmilyH <emlhk080804@gmail.com>
+Date:   Mon Sep 30 14:29:06 2024 -0600
+
+    player loses hearts and goes into animation when colliding with asteroid
+
+commit b0111d3ddc655ea95d2b34373818f7c91d838725
+Author: EmilyH <emlhk080804@gmail.com>
+Date:   Mon Sep 30 13:16:22 2024 -0600
+
+    asteroids spawn with varying sizes
+
+commit 6905f51b2f52500d2a0713188d7660e2668759c3
+Author: EmilyH <emlhk080804@gmail.com>
+Date:   Mon Sep 30 12:55:30 2024 -0600
+
+    asteroids now spawn
+
+commit d2c8d8146cd1ee7ace03f772941725ac09b5e22c
+Author: EmilyH <emlhk080804@gmail.com>
+Date:   Sun Sep 29 21:22:41 2024 -0600
+
+    added asteroid objects
+
+commit ab08666301bea6eb7a813f1aee090287cfbd4752
+Author: EmilyH <emlhk080804@gmail.com>
+Date:   Sun Sep 29 20:51:46 2024 -0600
+
+    added nonfunctional health bar
+
+commit 471319da2596de0e8f977302bca3e4c173445b71
+Author: EmilyH <emlhk080804@gmail.com>
+Date:   Sun Sep 29 20:26:34 2024 -0600
+
+    added planet sprites in background
+
+commit fd72195e8fcab44b54d44321d05f9232555d5781
+Author: EmilyH <emlhk080804@gmail.com>
+Date:   Sun Sep 29 19:45:20 2024 -0600
+
+    added sound effect to bullet firing
+
+commit 567c9547f76382bb4bd3d23da1d1a68ea0c2c3f9
+Author: EmilyH <emlhk080804@gmail.com>
+Date:   Sun Sep 29 19:16:45 2024 -0600
+
+    bullets now despawn after 1 second
+
+commit 1c7c8413b99aab047e3e5d82695379cd4e79d387
+Author: EmilyH <emlhk080804@gmail.com>
+Date:   Sun Sep 29 19:05:33 2024 -0600
+
+    divided player and bullet into 2 scenes
+
+commit 641bd8f670bafd5d1deb9ad0244f739a14e69872
+Author: EmilyH <emlhk080804@gmail.com>
+Date:   Sun Sep 29 19:04:33 2024 -0600
+
+    player now shoots bullets
+
+commit 445e2e8553ae2cc7636d6086821cbf365169ab8a
+Author: EmilyH <emlhk080804@gmail.com>
+Date:   Sun Sep 29 18:14:59 2024 -0600
+
+    more minor changes to perfect player movement. fixed warp animation
+
+commit c320397aa11d18508301d024d74a4c81ccb22673
+Author: job346 <job346@usask.ca>
+Date:   Sun Sep 29 16:38:21 2024 -0600
+
+    started on star particle background
+
+commit 6d3c29f23a85a3722d739fc3c87b79d91822759a
+Author: job346 <job346@usask.ca>
+Date:   Sun Sep 29 16:09:24 2024 -0600
+
+    fixed bullet firing not pushing player backwards correctly
+
+commit 775bc4f3d71c3348c9e7348bf1885bc39b5db664
+Author: job346 <job346@usask.ca>
+Date:   Sun Sep 29 16:01:02 2024 -0600
+
+    reworked movement system and added screen wrap
+
+commit 123f50a2426112b30344de46934d9c2cdc79db3b
+Author: job346 <job346@usask.ca>
+Date:   Sun Sep 29 15:21:27 2024 -0600
+
+    player rotation and shooting working
+
+commit f069941176c22a316c9a262ad81fb93567d752a6
+Author: job346 <job346@usask.ca>
+Date:   Sun Sep 29 15:07:12 2024 -0600
+
+    fixed left/right animations on player spritesheet.
+
+commit 924f52cf262674e5a85fb4881e4f5f1bfe63a87d
+Author: job346 <job346@usask.ca>
+Date:   Sun Sep 29 14:53:34 2024 -0600
+
+    added name, nsid and student # to top right of game
+
+commit 5f2ad064e2eaa578a3fca2fddabaa94bd9834982
+Author: job346 <job346@usask.ca>
+Date:   Sun Sep 29 13:02:15 2024 -0600
+
+    added animations to ship
+
+commit 494045d72f4937cf268838a54db48a5ea1264dec
+Author: job346 <job346@usask.ca>
+Date:   Sun Sep 29 12:51:18 2024 -0600
+
+    added ship spritesheet png
+
+commit 51dcdf4bcf795f084d96a88975b3d17f44d70516
+Author: job346 <job346@usask.ca>
+Date:   Thu Sep 26 13:08:29 2024 -0600
+
+    initial commit.
